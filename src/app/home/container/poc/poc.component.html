@@ -1,0 +1,73 @@
+<input type="text" [(ngModel)]="data" class="form-control">
+{{data}}
+<hr>
+<button (click)="decrement()"*ngIf="counter > 0" class="btn btn-danger">-</button>
+    <span>{{counter}}</span>
+<button (click)="increment()" class="btn btn-success">+</button>
+<hr>
+<div class="form-group">
+  <label appMydirective >Name</label>
+  <input type="text" class="form-control" [(ngModel)]="name">
+</div>
+<div class="form-group" *ngIf='name =="jamel"'>
+  <label appMydirective >email</label>
+  <input type="email" class="form-control" [(ngModel)]="email">
+</div>
+<div class="form-group">
+  <label appMydirective >phone</label>
+  <input type="number" class="form-control" [(ngModel)]="phone">
+</div>
+<div class="form-group">
+  <label appMydirective >about</label>
+  <textarea  class="form-control" [(ngModel)]="about"></textarea>
+</div>
+<hr>
+<button (click)="reset()" class="btn btn-danger">annuler</button>
+   
+<button (click)="save()" class="btn btn-success">valider</button>
+<hr>
+{{user|json}}
+<hr>
+<table class="table">
+  <thead>
+    <tr>
+      <td>Search:</td>
+      <td>
+        <input type="text" class="form-control" [(ngModel)]='search'>
+      </td>
+    </tr>
+    <tr>
+      <td appMydirective >id</td>
+      <td appMydirective >name</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of HEROES|mypipe : search">
+      <td> {{item.id}}</td>
+      <td [ngClass]="{'rouge':item.name.length>6,'green':item.name.length<6}">{{item.name}}</td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<mat-radio-group>
+    <mat-radio-button value="1">Option
+   1</mat-radio-button>
+    <mat-radio-button value="2">Option
+   2</mat-radio-button>
+   </mat-radio-group>
+<hr>
+<mat-slider></mat-slider>
+<hr>
+<mat-checkbox>Check me!</mat-checkbox>
+<hr>
+<hr>
+<mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]= "picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <hr>
+  <hr>
+<mat-icon class="">home</mat-icon>
+<hr>
+{{result|json}}
